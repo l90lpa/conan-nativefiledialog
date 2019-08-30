@@ -2,7 +2,7 @@ env:
   global:
     - CONAN_USERNAME: rhololkeolke
     - CONAN_LOGIN_USERNAME: rhololkeolke
-    - CONAN_CHANNEL: testing
+    - CONAN_CHANNEL: stable
     - CONAN_UPLOAD: https://api.bintray.com/conan/rhololkeolke/public-conan
     - CONAN_STABLE_BRANCH_PATTERN: stable/*
     - CONAN_UPLOAD_ONLY_WHEN_STABLE: 1
