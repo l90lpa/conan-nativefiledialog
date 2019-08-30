@@ -103,3 +103,5 @@ flycheck_*.el
 
 # End of https://www.gitignore.io/api/c++,linux,emacs
 .mypy_cache
+test_package/build
+.ccls-cache
