@@ -1,4 +1,5 @@
 import os
+from io import StringIO
 from pathlib import Path
 
 from conans import ConanFile, tools
@@ -80,4 +81,17 @@ class NativeFileDialogConan(ConanFile):
     def package_info(self):
         self.cpp_info.libs = tools.collect_libs(self)
         if not self.options.use_zenity:
-            self.cpp_info.libs.append("gtk-3")
+            pkgconfig_output_buf = StringIO()
+            self.run("pkg-config --libs gtk+-3.0", output=pkgconfig_output_buf)
+
+            pkgconfig_output = pkgconfig_output_buf.getvalue()
+            pkgconfig_libs = pkgconfig_output.split(' ')
+
+            gtk_libs = []
+            for lib in pkgconfig_libs:
+                # skip empty strings
+                if lib == '':
+                    continue
+                gtk_libs.append(lib.split('-l')[1])
+
+            self.cpp_info.libs.extend(gtk_libs)
