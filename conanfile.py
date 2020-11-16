@@ -8,7 +8,7 @@ from conans.errors import ConanInvalidConfiguration
 
 class NativeFileDialogConan(ConanFile):
     name = "nativefiledialog"
-    version = "114"
+    version = "116"
     description = "A tiny, neat C library that portably invokes native file open and save dialogs."
     topics = ("gui",)
     url = "https://github.com/rhololkeolke/conan-nativefiledialog"
@@ -40,7 +40,7 @@ class NativeFileDialogConan(ConanFile):
         source_url = "https://github.com/mlabbe/nativefiledialog"
         tools.get(
             f"{source_url}/archive/release_{self.version}.tar.gz",
-            sha256="ef9b91f4376a469eebd81b5cd28248e7a4db48948fd9d21e6a3ab2ba9b990c66",
+            sha256="1BBAED79B9C499C8D2A54F40F89277E721C0894BF3048BB247D826B96DB6BC08",
         )
         extracted_dir = f"{self.name}-release_{self.version}"
 
